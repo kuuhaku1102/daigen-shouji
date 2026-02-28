@@ -35,7 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btn && nav) {
         btn.addEventListener('click', function () {
             const open = nav.classList.toggle('is-open');
+            btn.classList.toggle('is-open');
             btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+
+        // Close menu on link click
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('is-open');
+                btn.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 

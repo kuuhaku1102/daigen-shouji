@@ -240,3 +240,40 @@ function daigen_add_custom_menus_to_primary($items, $args) {
     return str_replace('href="' . esc_url(home_url('/#company')) . '"', 'href="' . esc_url(home_url('/company/')) . '"', $items);
 }
 add_filter('wp_nav_menu_items', 'daigen_add_custom_menus_to_primary', 10, 2);
+
+/**
+ * Auto-seed additional Business posts if not exist
+ */
+function daigen_seed_additional_business_posts() {
+    $new_businesses = [
+        [
+            'title' => '輸入ビジネス',
+            'excerpt' => '海外発のリソースを国内市場へ。独自の目利きとスピード感でトレンドを牽引します。',
+            'content' => '世界中から最新のトレンド商品や需要の高い商材をスピーディに輸入・展開しています。単なる並行輸入ではなく、メーカーとの公式なパートナーシップや独占販売権の獲得も視野に入れ、国内でのブランディングまでを一気通貫でサポート。質の高いプロモーションと安全な流通網で日本市場に新しい風を吹き込みます。',
+            'image' => 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop',
+        ],
+        [
+            'title' => '国内卸業',
+            'excerpt' => '全国の小売店・パートナー企業へ向け、競争力のある価格で高品質な商材を安定供給。',
+            'content' => '豊富な在庫と強固なサプライチェーン基盤を活かし、国内の小売店やEC事業者向けにBtoB卸売りを展開しています。トレーディングカードから一般ホビー・雑貨まで、幅広いラインナップを競争力のある価格で安定的に供給し、パートナー企業の売上拡大に直結するベストな提案を行います。',
+            'image' => 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop',
+        ]
+    ];
+
+    foreach ($new_businesses as $b) {
+        $existing = get_page_by_title($b['title'], OBJECT, 'business');
+        if (!$existing) {
+            $post_id = wp_insert_post([
+                'post_title'   => wp_strip_all_tags($b['title']),
+                'post_excerpt' => $b['excerpt'],
+                'post_content' => $b['content'],
+                'post_status'  => 'publish',
+                'post_type'    => 'business',
+            ]);
+            if (!is_wp_error($post_id)) {
+                update_post_meta($post_id, '_mock_image_url', $b['image']);
+            }
+        }
+    }
+}
+add_action('init', 'daigen_seed_additional_business_posts');

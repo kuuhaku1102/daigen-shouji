@@ -145,6 +145,24 @@ h6 {
     width: 100%;
 }
 
+.nav-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--brand);
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
 /* Buttons */
 .btn {
     display: inline-flex;
@@ -782,6 +800,54 @@ h6 {
 
 /* Mobile Responsiveness */
 @media (max-width: 991px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .site-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 100px 40px;
+        transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 900;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .site-nav.is-open {
+        right: 0;
+    }
+
+    .site-nav .menu {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .site-nav .menu a {
+        font-size: 18px;
+    }
+
+    .nav-toggle.is-open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.is-open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .site-header {
+        padding: 8px 0;
+    }
+
     .hero-inner {
         grid-template-columns: 1fr;
         text-align: center;
