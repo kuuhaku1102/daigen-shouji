@@ -70,11 +70,11 @@ get_header(); ?>
     <!-- Representative Message -->
     <section class="section" style="padding: 120px 0; background: var(--bg);">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;" class="msg-grid">
-                <div class="js-fade">
+            <div style="max-width: 800px; margin: 0 auto; background: #fff; padding: 60px; border-radius: 24px; box-shadow: var(--shadow-sm); border: 1px solid var(--line);">
+                <div class="js-fade" style="text-align: center;">
                     <p style="color: var(--accent); font-weight: 700; letter-spacing: 2px; margin-bottom: 12px; font-size: 14px;">MESSAGE</p>
-                    <h2 style="font-size: 36px; margin-bottom: 32px; color: var(--brand); line-height: 1.3;">「好き」の延長線上にある、巨大な可能性を切り拓く。</h2>
-                    <div style="font-size: 15px; line-height: 2; color: var(--muted);">
+                    <h2 style="font-size: clamp(24px, 3vw, 36px); margin-bottom: 32px; color: var(--brand); line-height: 1.4;">「好き」の延長線上にある、巨大な可能性を切り拓く。</h2>
+                    <div style="font-size: 15px; line-height: 2; color: var(--muted); text-align: left;">
                         <p style="margin-bottom: 24px;">私たちが身を置くトレーディングカード業界やホビー市場は、今や日本国内だけでなく、世界中から熱視線を集める巨大な「アセットクラス領域」へと変貌を遂げています。</p>
                         <p style="margin-bottom: 24px;">大元商事は、単に流行に乗って商品を右から左へ流す企業ではありません。日本の持つ文化的・技術的なポテンシャルを見極め、適切なルートとデータドリブンな戦略を用いて、世界市場へ確かな価値として届ける「グローバル商社」です。</p>
                         <p style="margin-bottom: 24px;">また、私たちが最も大切にしているのは「信頼」です。偽造品の排除、徹底した品質管理、そして国境を越えたフェアな取引。これらを基盤とした次世代のコマース体制を構築し、ステークホルダー全員が恩恵を受けられるエコシステムを創出してまいります。</p>
@@ -84,14 +84,6 @@ get_header(); ?>
                         <p style="font-size: 14px; color: var(--muted); margin-bottom: 4px;">代表取締役社長</p>
                         <p style="font-size: 24px; font-weight: 800; color: var(--brand); font-family: 'Noto Sans JP', sans-serif;">奥地 剛志</p>
                     </div>
-                </div>
-                <div class="js-fade" style="position: relative;">
-                    <!-- Placeholder/Stylized frame for CEO -->
-                    <div style="aspect-ratio: 4/5; background: var(--gradient-silver); border-radius: 24px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
-                        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.4), transparent); z-index: 1;"></div>
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); position: absolute; z-index: 0;" alt="Representative">
-                    </div>
-                    <div style="position: absolute; bottom: -20px; left: -20px; width: 140px; height: 140px; background: var(--accent); border-radius: 50%; opacity: 0.1; z-index: -1;"></div>
                 </div>
             </div>
         </div>
@@ -163,7 +155,6 @@ get_header(); ?>
 <style>
 @media (max-width: 991px) {
     .philosophy-grid > div { grid-column: span 12 !important; }
-    .msg-grid { grid-template-columns: 1fr !important; }
 }
 .philosophy-grid > div:nth-child(2):hover, .philosophy-grid > div:nth-child(3):hover {
     transform: translateY(-8px);
