@@ -277,3 +277,6 @@ function daigen_seed_additional_business_posts() {
     }
 }
 add_action('init', 'daigen_seed_additional_business_posts');
+
+// Require rich content setup
+require_once get_template_directory() . '/inc/setup-rich-content.php';
