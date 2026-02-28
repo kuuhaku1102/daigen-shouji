@@ -26,8 +26,7 @@
         wp_nav_menu([
           'theme_location' => 'primary',
           'container' => false,
-          'menu_class' => 'menu',
-          'fallback_cb' => false,
+          'fallback_cb' => 'daigen_primary_menu_fallback',
         ]);
       ?>
     </nav>

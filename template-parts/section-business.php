@@ -6,48 +6,47 @@
     </div>
 
     <div class="bento-grid js-stagger">
-      <!-- Feature 1: Export -->
-      <div class="bento-card col-8">
-        <div class="bento-content">
-          <h3>海外輸出事業</h3>
-          <p>中国、北米、欧州などへ向けた商物流網を構築。優れた日本の商品を安定的に世界へ届けます。</p>
-        </div>
-      </div>
-      <!-- Feature 2: Import -->
-      <div class="bento-card col-4">
-        <div class="bento-content">
-          <h3>輸入・貿易</h3>
-          <p>徹底したリサーチに基づく直輸入で、国内市場のニーズに迅速に応えます。</p>
-        </div>
-      </div>
-      <!-- Feature 3: EC Platform -->
-      <div class="bento-card col-4">
-        <div class="bento-content">
-          <h3>ECシステム構築</h3>
-          <p>自社構築のノウハウを活かし、販売・在庫管理から越境ECまでを統合支援。</p>
-        </div>
-      </div>
-      <!-- Feature 4: Trading Card -->
-      <div class="bento-card col-8">
-        <div class="bento-content">
-          <h3>トレーディングカード売買</h3>
-          <p>専門ジャンルに特化した目利きと国内外の豊富な販路により、最適な価格で流通させます。</p>
-        </div>
-      </div>
-      <!-- Feature 5: Shop -->
-      <div class="bento-card col-6">
-        <div class="bento-content">
-          <h3>TORECAMOB 運営</h3>
-          <p>店舗とオンライン双方でのファンコミュニティ形成を軸としたホビーショップ。</p>
-        </div>
-      </div>
-      <!-- Feature 6: Consulting -->
-      <div class="bento-card col-6">
-        <div class="bento-content">
-          <h3>コンサルティング</h3>
-          <p>トレカ事業の立ち上げから海外販路の開拓まで、実績に基づく強力な伴走型支援。</p>
-        </div>
-      </div>
+      <?php
+      $args = [
+        'post_type' => 'business',
+        'posts_per_page' => 6,
+        'orderby' => 'menu_order title',
+        'order' => 'ASC'
+      ];
+      $business_query = new WP_Query($args);
+
+      if ($business_query->have_posts()) :
+        $index = 0;
+        // Map grid sizes: 8, 4, 4, 8, 6, 6
+        $sizes = ['col-8', 'col-4', 'col-4', 'col-8', 'col-6', 'col-6'];
+
+        while ($business_query->have_posts()) : $business_query->the_post();
+          $size_class = isset($sizes[$index]) ? $sizes[$index] : 'col-6';
+          
+          // Get mock URL or featured image
+          $img_url = get_post_meta(get_the_ID(), '_mock_image_url', true);
+          if (!$img_url && has_post_thumbnail()) {
+              $img_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+          }
+          
+          // Fallback solid color if no image
+          $bg_style = $img_url ? 'background-image: url(' . esc_url($img_url) . '); background-size: cover; background-position: center;' : 'background: #0E1A2B;';
+          ?>
+          <a href="<?php the_permalink(); ?>" class="bento-card <?php echo esc_attr($size_class); ?>" style="<?php echo $bg_style; ?>">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+              <h3><?php the_title(); ?></h3>
+              <p><?php echo wp_trim_words(get_the_excerpt(), 25); ?></p>
+            </div>
+          </a>
+          <?php
+          $index++;
+        endwhile;
+        wp_reset_postdata();
+      else :
+      ?>
+        <p>現在事業内容の準備中です。</p>
+      <?php endif; ?>
     </div>
   </div>
 </section>
