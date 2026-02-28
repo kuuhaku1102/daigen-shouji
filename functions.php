@@ -180,6 +180,26 @@ function daigen_seed_global_page() {
 add_action('init', 'daigen_seed_global_page');
 
 /**
+ * Auto-seed initial Company page if empty
+ */
+function daigen_seed_company_page() {
+    $page = get_page_by_path('company');
+    if (!$page) {
+        $page_id = wp_insert_post([
+            'post_title' => '会社情報',
+            'post_name' => 'company',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'post_content' => ''
+        ]);
+        if ($page_id && !is_wp_error($page_id)) {
+            update_post_meta($page_id, '_wp_page_template', 'page-company.php');
+        }
+    }
+}
+add_action('init', 'daigen_seed_company_page');
+
+/**
  * Menu Auto-setup Fallback
  */
 function daigen_primary_menu_fallback() {
@@ -187,7 +207,7 @@ function daigen_primary_menu_fallback() {
     echo '<li><a href="' . esc_url(home_url('/')) . '">Home</a></li>';
     echo '<li><a href="' . esc_url(get_post_type_archive_link('business')) . '">Our Business</a></li>';
     echo '<li><a href="' . esc_url(home_url('/global/')) . '">Global</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/#company')) . '">Company</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/company/')) . '">Company</a></li>';
     echo '<li><a href="' . esc_url(home_url('/#contact')) . '">Contact</a></li>';
     echo '</ul>';
 }
@@ -208,7 +228,15 @@ function daigen_add_custom_menus_to_primary($items, $args) {
                 $items .= '<li class="menu-item"><a href="' . esc_url(home_url('/global/')) . '">Global</a></li>';
             }
         }
+        if (strpos($items, 'Company') === false && strpos($items, '会社情報') === false) {
+            $page = get_page_by_path('company');
+            if ($page) {
+                $items .= '<li class="menu-item"><a href="' . esc_url(get_permalink($page->ID)) . '">Company</a></li>';
+            } else {
+                $items .= '<li class="menu-item"><a href="' . esc_url(home_url('/company/')) . '">Company</a></li>';
+            }
+        }
     }
-    return $items;
+    return str_replace('href="' . esc_url(home_url('/#company')) . '"', 'href="' . esc_url(home_url('/company/')) . '"', $items);
 }
 add_filter('wp_nav_menu_items', 'daigen_add_custom_menus_to_primary', 10, 2);
