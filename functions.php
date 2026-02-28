@@ -183,7 +183,7 @@ add_action('init', 'daigen_seed_global_page');
  * Menu Auto-setup Fallback
  */
 function daigen_primary_menu_fallback() {
-    echo '<ul id="menu-primary" class="primary-menu">';
+    echo '<ul id="menu-primary" class="menu">';
     echo '<li><a href="' . esc_url(home_url('/')) . '">Home</a></li>';
     echo '<li><a href="' . esc_url(get_post_type_archive_link('business')) . '">Our Business</a></li>';
     echo '<li><a href="' . esc_url(home_url('/global/')) . '">Global</a></li>';
