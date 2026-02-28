@@ -2,10 +2,14 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { tsParticles } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
+import { initGlobe } from './globe.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    // Init Three.js Globe if on global page
+    initGlobe();
 
     // -------------------------
     // Header blur effect

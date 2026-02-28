@@ -160,26 +160,53 @@ function daigen_seed_business_posts() {
 add_action('init', 'daigen_seed_business_posts');
 
 /**
+ * Auto-seed initial Global page if empty
+ */
+function daigen_seed_global_page() {
+    $page = get_page_by_path('global');
+    if (!$page) {
+        $page_id = wp_insert_post([
+            'post_title' => '海外展開',
+            'post_name' => 'global',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'post_content' => ''
+        ]);
+        if ($page_id && !is_wp_error($page_id)) {
+            update_post_meta($page_id, '_wp_page_template', 'page-global.php');
+        }
+    }
+}
+add_action('init', 'daigen_seed_global_page');
+
+/**
  * Menu Auto-setup Fallback
  */
 function daigen_primary_menu_fallback() {
     echo '<ul id="menu-primary" class="menu">';
     echo '<li><a href="' . esc_url(home_url('/')) . '">Home</a></li>';
     echo '<li><a href="' . esc_url(get_post_type_archive_link('business')) . '">Our Business</a></li>';
+    echo '<li><a href="' . esc_url(home_url('/global/')) . '">Global</a></li>';
     echo '<li><a href="' . esc_url(home_url('/#company')) . '">Company</a></li>';
     echo '<li><a href="' . esc_url(home_url('/#contact')) . '">Contact</a></li>';
     echo '</ul>';
 }
 
 /**
- * Filter to auto-append Our Business to the menu if it doesn't exist
+ * Filter to auto-append to the menu if it doesn't exist
  */
-function daigen_add_business_to_menu($items, $args) {
+function daigen_add_custom_menus_to_primary($items, $args) {
     if ($args->theme_location == 'primary') {
         if (strpos($items, 'Our Business') === false && strpos($items, '事業内容') === false) {
             $items .= '<li class="menu-item"><a href="' . esc_url(get_post_type_archive_link('business')) . '">Our Business</a></li>';
         }
+        if (strpos($items, 'Global') === false && strpos($items, '海外展開') === false) {
+            $page = get_page_by_path('global');
+            if ($page) {
+                $items .= '<li class="menu-item"><a href="' . esc_url(get_permalink($page->ID)) . '">Global</a></li>';
+            }
+        }
     }
     return $items;
 }
-add_filter('wp_nav_menu_items', 'daigen_add_business_to_menu', 10, 2);
+add_filter('wp_nav_menu_items', 'daigen_add_custom_menus_to_primary', 10, 2);
