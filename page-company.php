@@ -89,7 +89,7 @@ get_header(); ?>
                     <!-- Placeholder/Stylized frame for CEO -->
                     <div style="aspect-ratio: 4/5; background: var(--gradient-silver); border-radius: 24px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
                         <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.4), transparent); z-index: 1;"></div>
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=800&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); position: absolute; z-index: 0;" alt="Representative">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); position: absolute; z-index: 0;" alt="Representative">
                     </div>
                     <div style="position: absolute; bottom: -20px; left: -20px; width: 140px; height: 140px; background: var(--accent); border-radius: 50%; opacity: 0.1; z-index: -1;"></div>
                 </div>
