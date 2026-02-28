@@ -48,7 +48,7 @@ jobs:
           ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
           "echo 'SSH OK'"
 
-      - name: Deploy Daigen Corporate Theme
+      - name: Deploy Daigen Corporate Theme (Fast Mode)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.SSH_HOST }}
@@ -56,11 +56,12 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          local_path: ./
+          # 🔥 テーマフォルダのみ送る（重要）
+          local_path: ./daigen-corporate/
 
+          # 🔥 デプロイ先
           remote_path: "public_html/daigen-shouji.com/wp-content/themes/daigen-corporate/"
 
-          sftp_only: false
+          # 🔥 ConoHa高速化設定
+          sftp_only: true
           delete_remote_files: false
-
-          rsyncArgs: "--exclude='.git/' --exclude='.github/' --exclude='node_modules/' --exclude='.env' --exclude='.DS_Store' --exclude='*.md'"
