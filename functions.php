@@ -183,7 +183,7 @@ add_action('init', 'daigen_seed_global_page');
  * Menu Auto-setup Fallback
  */
 function daigen_primary_menu_fallback() {
-    echo '<ul id="menu-primary" class="menu">';
+    echo '<ul id="menu-primary" class="primary-menu">';
     echo '<li><a href="' . esc_url(home_url('/')) . '">Home</a></li>';
     echo '<li><a href="' . esc_url(get_post_type_archive_link('business')) . '">Our Business</a></li>';
     echo '<li><a href="' . esc_url(home_url('/global/')) . '">Global</a></li>';
@@ -196,7 +196,7 @@ function daigen_primary_menu_fallback() {
  * Filter to auto-append to the menu if it doesn't exist
  */
 function daigen_add_custom_menus_to_primary($items, $args) {
-    if ($args->theme_location == 'primary') {
+    if ($args->theme_location == 'primary' || empty($items)) {
         if (strpos($items, 'Our Business') === false && strpos($items, '事業内容') === false) {
             $items .= '<li class="menu-item"><a href="' . esc_url(get_post_type_archive_link('business')) . '">Our Business</a></li>';
         }
@@ -204,6 +204,8 @@ function daigen_add_custom_menus_to_primary($items, $args) {
             $page = get_page_by_path('global');
             if ($page) {
                 $items .= '<li class="menu-item"><a href="' . esc_url(get_permalink($page->ID)) . '">Global</a></li>';
+            } else {
+                $items .= '<li class="menu-item"><a href="' . esc_url(home_url('/global/')) . '">Global</a></li>';
             }
         }
     }
