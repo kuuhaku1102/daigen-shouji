@@ -1,4 +1,7 @@
 <section class="hero" id="hero">
+  <!-- Particles Background container -->
+  <div id="tsparticles" class="hero-particles"></div>
+
   <div class="container hero-inner">
     <div class="hero-copy">
       <h1 class="hero-title">
@@ -14,13 +17,17 @@
         <a href="#contact" class="btn btn-outline">お問い合わせ</a>
       </div>
     </div>
+
+    <!-- More aggressive animated visual -->
     <div class="hero-visual js-hero-visual">
       <div class="hero-visual-container">
+        
         <!-- Abstract Global Network Rings -->
         <div class="orbit-rings">
           <div class="ring ring-1"></div>
           <div class="ring ring-2"></div>
           <div class="ring ring-3"></div>
+          <div class="ring ring-glow"></div>
         </div>
         
         <!-- Animated Trading Cards / Modules -->
@@ -28,18 +35,26 @@
           <div class="t-card t-card-1">
             <div class="t-card-inner">
               <div class="t-card-glass"></div>
-              <div class="t-card-chip"></div>
+              <div class="t-card-glow-edge"></div>
             </div>
           </div>
           <div class="t-card t-card-2">
             <div class="t-card-inner highlight">
               <div class="t-card-glass"></div>
               <div class="t-card-data-lines"></div>
+              <div class="t-card-glow-edge"></div>
             </div>
           </div>
           <div class="t-card t-card-3">
             <div class="t-card-inner">
               <div class="t-card-glass"></div>
+              <div class="t-card-glow-edge"></div>
+            </div>
+          </div>
+          <div class="t-card t-card-4">
+            <div class="t-card-inner highlight-alt">
+              <div class="t-card-glass"></div>
+              <div class="t-card-glow-edge"></div>
             </div>
           </div>
         </div>
@@ -54,6 +69,7 @@
             <path class="js-node-line" d="M 20 20 L 70 30 L 80 70 L 30 80 Z" />
             <path class="js-node-line" d="M 20 20 L 30 80" />
             <path class="js-node-line" d="M 70 30 L 30 80" />
+            <path class="js-node-line-fast" d="M 20 20 L 80 70" />
           </svg>
         </div>
       </div>
