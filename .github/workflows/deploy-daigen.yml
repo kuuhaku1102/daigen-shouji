@@ -2,33 +2,11 @@ name: Deploy Daigen Corporate Theme to ConoHa
 
 on:
   push:
-    branches: [ main, work ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  ssh-smoke-test:
-    if: github.ref == 'refs/heads/work'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-
-      - name: Test SSH connection
-        run: |
-          ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} \
-          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-          "echo 'SSH OK'"
-
   deploy:
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -42,13 +20,7 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Test SSH connection
-        run: |
-          ssh -i ~/.ssh/id_ed25519 -p ${{ secrets.SSH_PORT }} \
-          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-          "echo 'SSH OK'"
-
-      - name: Deploy Daigen Corporate Theme (Fast Mode)
+      - name: Deploy Theme
         uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           server: ${{ secrets.SSH_HOST }}
@@ -56,12 +28,14 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          # 🔥 テーマフォルダのみ送る（重要）
-          local_path: ./daigen-corporate/
+          # 👇 リポジトリ直下を送る
+          local_path: ./
 
-          # 🔥 デプロイ先
+          # 👇 サーバー側テーマパス
           remote_path: "public_html/daigen-shouji.com/wp-content/themes/daigen-corporate/"
 
-          # 🔥 ConoHa高速化設定
           sftp_only: true
           delete_remote_files: false
+
+          # 👇 不要ファイル除外（重要）
+          rsyncArgs: "--exclude='.git/' --exclude='.github/' --exclude='.DS_Store' --exclude='*.md'"
