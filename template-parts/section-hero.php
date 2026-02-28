@@ -1,27 +1,16 @@
-<section class="hero">
+<section class="hero" id="hero">
   <div class="container hero-inner">
     <div class="hero-copy">
-      <h1 class="hero-title"><?php echo esc_html(get_theme_mod('daigen_hero_title', '世界へ、日本の価値を届ける。')); ?></h1>
-      <p class="hero-lead"><?php echo esc_html(get_theme_mod('daigen_hero_lead', '輸入・貿易・トレーディングカード事業を通じてグローバル市場へ展開')); ?></p>
+      <h1 class="hero-title">世界へ、<br>日本の価値を届ける。</h1>
+      <p class="hero-lead">輸入・貿易・トレーディングカード事業を通じて<br>日本と世界の市場をつなぐグローバル・カンパニー</p>
       <div class="hero-cta">
-        <a class="btn" href="#business">事業内容</a>
-        <a class="btn btn-ghost" href="#company">会社概要</a>
+        <a href="#business" class="btn btn-accent">Our Business</a>
+        <a href="#contact" class="btn btn-outline">お問い合わせ</a>
       </div>
     </div>
-
-    <div class="hero-panel">
-      <div class="hero-stat">
-        <div class="hero-stat-num">100M</div>
-        <div class="hero-stat-label">年間売上（例）</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">Global</div>
-        <div class="hero-stat-label">海外売上・輸出中心</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">TORECAMOB</div>
-        <div class="hero-stat-label">トレカ/ホビー運営</div>
-      </div>
+    <div class="hero-visual">
+      <!-- 3D-like GSAP float sphere (Silver/Brand gradient) -->
+      <div class="hero-sphere js-hero-sphere"></div>
     </div>
   </div>
 </section>

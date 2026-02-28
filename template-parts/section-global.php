@@ -1,21 +1,25 @@
-<section class="section section-alt">
+<section id="global" class="section">
   <div class="container">
-    <div class="section-head">
-      <h2 class="section-title">世界各地で事業を展開</h2>
-      <p class="section-lead">主要輸出国：中国 / アメリカ / イギリス / カナダ / シンガポール / マレーシア / ドイツ / イタリア / オーストラリア ほか</p>
+    <div class="section-header">
+      <h2 class="section-title js-fade">Global Strategy</h2>
+      <p class="section-lead js-fade">「海外・輸出」を主軸とした圧倒的なグローバル展開力。全世界を市場と捉え、日本の商品を届けます。</p>
     </div>
 
-    <div class="pill-wrap">
-      <span class="pill">China</span>
-      <span class="pill">USA</span>
-      <span class="pill">UK</span>
-      <span class="pill">Canada</span>
-      <span class="pill">Singapore</span>
-      <span class="pill">Malaysia</span>
-      <span class="pill">Germany</span>
-      <span class="pill">Italy</span>
-      <span class="pill">Australia</span>
-      <span class="pill">etc</span>
+    <!-- Data matrix for sales split -->
+    <div class="data-matrix js-stagger">
+      <div class="data-box">
+        <div class="data-num"><span class="js-counter">46</span>%</div>
+        <div class="data-label">Over-seas (国外・三国間)</div>
+      </div>
+      <div class="data-box">
+        <div class="data-num"><span class="js-counter">46</span>%</div>
+        <div class="data-label">Export (越境・輸出)</div>
+      </div>
+      <div class="data-box">
+        <div class="data-num"><span class="js-counter">8</span>%</div>
+        <div class="data-label">Domestic (国内)</div>
+      </div>
     </div>
+
   </div>
 </section>

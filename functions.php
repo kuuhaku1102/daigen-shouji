@@ -19,8 +19,8 @@ function daigen_theme_setup() {
 add_action('after_setup_theme', 'daigen_theme_setup');
 
 function daigen_assets() {
-  wp_enqueue_style('daigen-main', get_template_directory_uri() . '/assets/css/main.css', [], DAIGEN_VERSION);
-  wp_enqueue_script('daigen-main', get_template_directory_uri() . '/assets/js/main.js', [], DAIGEN_VERSION, true);
+  wp_enqueue_style('daigen-main', get_template_directory_uri() . '/assets/css/style.css', [], time());
+  wp_enqueue_script('daigen-main', get_template_directory_uri() . '/assets/js/main.js', [], time(), true);
 }
 add_action('wp_enqueue_scripts', 'daigen_assets');
 
