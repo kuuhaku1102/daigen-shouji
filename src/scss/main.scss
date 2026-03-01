@@ -103,15 +103,11 @@ h6 {
     color: var(--brand);
 }
 
-.site-logo-mark {
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    border-radius: 12px;
-    background: var(--gradient-silver);
-    color: var(--brand);
-    box-shadow: var(--shadow-sm);
+.site-logo-img {
+    height: 32px;
+    /* Set desired logo height */
+    width: auto;
+    object-fit: contain;
 }
 
 .site-nav .menu {

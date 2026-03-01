@@ -12,7 +12,7 @@
   <div class="container header-inner">
     <div class="site-brand">
       <a class="site-logo" href="<?php echo esc_url(home_url('/')); ?>">
-        <span class="site-logo-mark">大</span>
+        <img class="site-logo-img" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="<?php bloginfo('name'); ?> Logo">
         <span class="site-logo-text"><?php bloginfo('name'); ?></span>
       </a>
     </div>
