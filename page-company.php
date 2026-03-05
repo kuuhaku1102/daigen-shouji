@@ -110,7 +110,7 @@ get_header(); ?>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">所在地</th>
-                            <td style="padding: 24px; color: var(--text); font-size: 15px;">〒169-0073<br>東京都新宿区百人町１丁目２３ー２６</td>
+                            <td style="padding: 24px; color: var(--text); font-size: 15px;">〒103-0014<br>東京都中央区日本橋蛎殻町2丁目10-11 VORT水天宮I-6階</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">代表取締役社長</th>
@@ -122,7 +122,7 @@ get_header(); ?>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">従業員数</th>
-                            <td style="padding: 24px; color: var(--text); font-size: 15px;">---</td>
+                            <td style="padding: 24px; color: var(--text); font-size: 15px;">10名</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">事業内容</th>
