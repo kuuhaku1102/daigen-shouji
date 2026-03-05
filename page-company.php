@@ -102,11 +102,7 @@ get_header(); ?>
                     <tbody>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; width: 30%; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">社名</th>
-                            <td style="padding: 24px; color: var(--text); font-size: 15px;">株式会社大元商事</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--line);">
-                            <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">設立</th>
-                            <td style="padding: 24px; color: var(--text); font-size: 15px;">--- (設立年)</td>
+                            <td style="padding: 24px; color: var(--text); font-size: 15px;">大元商事株式会社</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">所在地</th>
@@ -115,10 +111,6 @@ get_header(); ?>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">代表取締役社長</th>
                             <td style="padding: 24px; color: var(--text); font-size: 15px;">奥地 剛志</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--line);">
-                            <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">資本金</th>
-                            <td style="padding: 24px; color: var(--text); font-size: 15px;">---</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--line);">
                             <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">従業員数</th>
@@ -135,6 +127,14 @@ get_header(); ?>
                                     <li style="margin-bottom: 8px;">・海外輸出事業</li>
                                     <li>・コンサルティング事業</li>
                                 </ul>
+                            </td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--line);">
+                            <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">連絡先</th>
+                            <td style="padding: 24px; color: var(--text); font-size: 15px;">
+                                TEL：03-6661-1831<br>
+                                FAX：03-6661-1821<br>
+                                Email：info@daigenshoji.com
                             </td>
                         </tr>
                     </tbody>
