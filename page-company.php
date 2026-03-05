@@ -137,13 +137,6 @@ get_header(); ?>
                                 </ul>
                             </td>
                         </tr>
-                        <tr style="border-bottom: 1px solid var(--line);">
-                            <th style="padding: 24px; background: rgba(14,26,43,0.02); color: var(--brand); font-weight: 700; font-size: 15px;">連絡先</th>
-                            <td style="padding: 24px; color: var(--text); font-size: 15px;">
-                                TEL: 080-3731-4665<br>
-                                Email: tsuyoshi263@icloud.com
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
